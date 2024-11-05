@@ -16,16 +16,16 @@ class IRCTC:
             self.train_dtl(train_no)
 
     def train_search(self,station_code):
-        data=requests.get("https://indianrailapi.com/api/v2/AllTrainOnStation/apikey/0d91d93fe6537f7c13c34d1d8733cb16/StationCode/{}".format(station_code)).json()
+        data=requests.get("https://indianrailapi.com/api/v2/AllTrainOnStation/apikey/<apikey>/StationCode/{}".format(station_code)).json()
         for i in data["Trains"]:
             print("Train No.:",i["TrainNo"]," | Train Name:",i["TrainName"]," | Arrival Time:",i["ArrivalTime"],"| Departure Time:",i["DepartureTime"],"\n")
             
     def pnr_check(self,pnr_no):
-        data=requests.get("https://indianrailapi.com/api/v2/PNRCheck/apikey/0d91d93fe6537f7c13c34d1d8733cb16/PNRNumber/{}".format(pnr_no)).json()
+        data=requests.get("https://indianrailapi.com/api/v2/PNRCheck/apikey/<apikey>/PNRNumber/{}".format(pnr_no)).json()
         print(data["Message"])
     
     def train_dtl(self,train_no):
-        data=requests.get("https://indianrailapi.com/api/v2/TrainSchedule/apikey/0d91d93fe6537f7c13c34d1d8733cb16/TrainNumber/{}".format(train_no)).json()
+        data=requests.get("https://indianrailapi.com/api/v2/TrainSchedule/apikey/<apikey>/TrainNumber/{}".format(train_no)).json()
         for i in data["Route"]:
             print(i["StationName"],"| Arrival Time:",i["ArrivalTime"],"| Departure Time:",i["DepartureTime"],"| Distance Travelled:",i["Distance"],"\n")
 obj=IRCTC()
