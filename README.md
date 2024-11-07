@@ -19,7 +19,7 @@ IRCTC Train Tracker is a Python-based command-line application that allows users
 ## Installation
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/irctc-train-tracker.git
+    git clone https://github.com/ravigorani/irctc-train-tracker.git
     cd irctc-train-tracker
     ```
 
